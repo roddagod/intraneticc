@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  name: MyString
+  event_date: 2018-09-23
+  icc_event: one
+  orateur: MyString
+  moderateur: MyString
+  conducteur: MyString
+  nb_nonstar_h: 1
+  nb_nonstar_f: 1
+  nb_star_h: 1
+  nb_star_f: 1
+  nb_enfants: 1
+
+two:
+  name: MyString
+  event_date: 2018-09-23
+  icc_event: two
+  orateur: MyString
+  moderateur: MyString
+  conducteur: MyString
+  nb_nonstar_h: 1
+  nb_nonstar_f: 1
+  nb_star_h: 1
+  nb_star_f: 1
+  nb_enfants: 1

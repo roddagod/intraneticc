@@ -1,0 +1,77 @@
+<%= form_with(model: event_stat, local: true) do |form| %>
+  <% if event_stat.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(event_stat.errors.count, "error") %> prohibited this event_stat from being saved:</h2>
+
+      <ul>
+      <% event_stat.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.label :name %>
+    <%= form.text_field :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :event_date %>
+    <%= form.date_select :event_date %>
+  </div>
+
+  <div class="field">
+    <%= form.label :icc_event_id %>
+    <%= collection_select :event_stat, :icc_event_id, IccEvent.all, :id, :name %>
+  </div>
+
+  <div class="field">
+    <%= form.label :orateur %>
+    <%= form.text_field :orateur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :moderateur %>
+    <%= form.text_field :moderateur %>
+  </div>
+
+  <div class="field">
+    <%= form.label :conducteur %>
+    <%= form.text_field :conducteur %>
+  </div>
+
+<div class="table-responsive">
+ <table class="table table-striped">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="column"> </th>
+      <th scope="column">Hommes</th>
+      <th scope="column">Femmes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td  scope="row">STAR</td>
+      <td data-label="Last Name"> <%= form.number_field :nb_star_h %></td>
+      <td data-label="Hero Title"><%= form.number_field :nb_star_f %></td>
+    </tr>
+    <tr>
+      <td  scope="row">Fidèles</td>
+      <td data-label="Last Name"><%= form.number_field :nb_nonstar_h %></td>
+      <td data-label="Hero Title"><%= form.number_field :nb_nonstar_f %></td>
+    </tr>
+    <tr>
+      <td  scope="row">Enfants</td>
+      <td colspan="2" data-label="Last Name"><%= form.number_field :nb_enfants %></td>
+      
+    </tr>
+  </tbody>
+</table>
+</div>
+
+
+  <div class="actions">
+    <%= form.submit %>
+  </div>
+<% end %>

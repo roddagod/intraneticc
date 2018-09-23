@@ -1,0 +1,27 @@
+<p id="notice"><%= notice %></p>
+
+<h1>Icc Events</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @icc_events.each do |icc_event| %>
+      <tr>
+        <td><%= icc_event.name %></td>
+        <td><%= link_to 'Show', icc_event %></td>
+        <td><%= link_to 'Edit', edit_icc_event_path(icc_event) %></td>
+        <td><%= link_to 'Destroy', icc_event, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Icc Event', new_icc_event_path %>

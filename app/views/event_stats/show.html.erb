@@ -1,0 +1,56 @@
+<p id="notice"><%= notice %></p>
+<h1>Statistiques > <%= @event_stat.name %></h1>
+<p>
+  <strong>Date:</strong>
+  <%= @event_stat.event_date %>
+</p>
+
+<p>
+  <strong>Type:</strong>
+  <%= @event_stat.icc_event.name %>
+</p>
+
+<p>
+  <strong>Orateur:</strong>
+  <%= @event_stat.orateur %>
+</p>
+
+<p>
+  <strong>Moderateur:</strong>
+  <%= @event_stat.moderateur %>
+</p>
+
+<p>
+  <strong>Conducteur:</strong>
+  <%= @event_stat.conducteur %>
+</p>
+
+<table class="table ">
+  <thead class="thead-dark">
+    <tr>
+      <th scope="column"> </th>
+      <th scope="column">Hommes</th>
+      <th scope="column">Femmes</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td  scope="row">STAR</td>
+      <td data-label="Last Name"> <%= @event_stat.nb_nonstar_h %></td>
+      <td data-label="Hero Title"><%= @event_stat.nb_star_f %></td>
+    </tr>
+    <tr>
+      <td  scope="row">Fidèles</td>
+      <td data-label="Last Name"><%= @event_stat.nb_nonstar_h %></td>
+      <td data-label="Hero Title"><%= @event_stat.nb_nonstar_f %></td>
+    </tr>
+    <tr>
+      <td  scope="row">Enfants</td>
+      <td colspan="2" data-label="Last Name"><%= @event_stat.nb_enfants %></td>
+
+    </tr>
+  </tbody>
+</table>
+
+<%= link_to 'Modifier', edit_event_stat_path(@event_stat) %> |
+<%= link_to 'Retour', event_stats_path %>

@@ -10,10 +10,33 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_09_23_081405) do
+ActiveRecord::Schema.define(version: 2018_09_23_090825) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "event_stats", force: :cascade do |t|
+    t.string "name"
+    t.date "event_date"
+    t.bigint "icc_event_id"
+    t.string "orateur"
+    t.string "moderateur"
+    t.string "conducteur"
+    t.integer "nb_nonstar_h"
+    t.integer "nb_nonstar_f"
+    t.integer "nb_star_h"
+    t.integer "nb_star_f"
+    t.integer "nb_enfants"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["icc_event_id"], name: "index_event_stats_on_icc_event_id"
+  end
+
+  create_table "icc_events", force: :cascade do |t|
+    t.string "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
@@ -29,4 +52,5 @@ ActiveRecord::Schema.define(version: 2018_09_23_081405) do
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
+  add_foreign_key "event_stats", "icc_events"
 end

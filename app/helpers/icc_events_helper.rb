@@ -1,0 +1,2 @@
+module IccEventsHelper
+end
